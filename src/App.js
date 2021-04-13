@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { navigate, Router } from '@reach/router';
+import { React, useState } from 'react';
+import NascarList from './components/NascarList';
+import Info from './views/Info';
+import Series from './components/Series';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+
+
+
+function App(props) {
+const [getDriver, setDriver] = useState({});
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <Router>
+      <NascarList path = "/"/>
+      <Info path = '/driver/:id'/>
+      <Series path = '/series'/>
+    </Router>
+    
     </div>
   );
 }
